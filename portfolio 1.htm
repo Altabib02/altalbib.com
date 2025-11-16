@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الملف الشخصي – Mohammed Altabib</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020617;--accent:#22d3ee;--accent2:#a855f7;--text:#e5e7eb;--muted:#9ca3af;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Cairo',system-ui,sans-serif;background:radial-gradient(circle at top,#0f172a 0,#020617 55%);color:var(--text);line-height:1.7;}
+header{position:fixed;top:0;left:0;right:0;background:rgba(15,23,42,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(148,163,184,.35);z-index:10;}
+.nav{max-width:1100px;margin:auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-badge{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#22d3ee,#6366f1);display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 10px 25px rgba(37,99,235,.7);animation:float 4s ease-in-out infinite;}
+.brand-logo{width:44px;height:44px;border-radius:14px;overflow:hidden;border:1px solid rgba(148,163,184,.6);box-shadow:0 10px 26px rgba(15,23,42,.9);background:#020617;}
+.brand-logo img{width:100%;height:100%;object-fit:cover;display:block;}
+.brand-text span:first-child{font-weight:700;font-size:15px;}
+.brand-text span:last-child{font-size:11px;color:var(--muted);}
+.nav ul{list-style:none;display:flex;gap:18px;font-size:13px;}
+.nav a{text-decoration:none;color:var(--muted);position:relative;padding-bottom:3px;transition:.25s;}
+.nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:center;transition:.25s;}
+.nav a:hover{color:#fff;}
+.nav a:hover::after{transform:scaleX(1);}
+main{max-width:1100px;margin:auto;padding:90px 20px 40px;}
+section{margin:60px 0;}
+.hero{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2.2fr);gap:40px;align-items:center;}
+.hero-title{font-size:30px;margin-bottom:10px;}
+.hero-title span{background:linear-gradient(120deg,#22d3ee,#a855f7,#f97316);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-sub{font-size:15px;color:var(--muted);margin-bottom:16px;}
+.hero-sub strong{color:#fff;}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;font-size:12px;}
+.tag{padding:3px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.6);background:rgba(15,23,42,.95);}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:.25s;}
+.btn-primary{background:linear-gradient(135deg,#22d3ee,#6366f1);color:#fff;box-shadow:0 12px 30px rgba(37,99,235,.6);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(37,99,235,.8);}
+.btn-ghost{border:1px solid rgba(148,163,184,.7);color:var(--text);background:rgba(15,23,42,.9);}
+.btn-ghost:hover{border-color:var(--accent);transform:translateY(-2px);}
+.btn-icon{width:18px;height:18px;border-radius:999px;border:1px solid rgba(15,23,42,.8);display:inline-flex;align-items:center;justify-content:center;font-size:11px;background:#020617;}
+.hero-note{font-size:12px;color:var(--muted);}
+.hero-card{position:relative;border-radius:22px;padding:18px 18px 16px;background:radial-gradient(circle at top,#0b1120,#020617);border:1px solid rgba(148,163,184,.4);box-shadow:0 18px 40px rgba(15,23,42,.9);overflow:hidden;animation:fade-up .8s ease-out;}
+.hero-card::before{content:'';position:absolute;inset:-40%;background:conic-gradient(from 220deg,rgba(34,211,238,.8),rgba(168,85,247,.7),rgba(249,115,22,.9),rgba(34,211,238,.8));opacity:.15;mix-blend-mode:screen;}
+.hero-card-inner{position:relative;}
+.hero-level{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin:6px 0;}
+.progress{flex:1;margin-inline:8px;height:5px;border-radius:999px;background:#020617;overflow:hidden;}
+.progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#22d3ee,#a855f7);transform-origin:right;animation:grow 1.4s cubic-bezier(.19,1,.22,1) forwards;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:999px;border:1px dashed rgba(148,163,184,.7);background:rgba(15,23,42,.95);margin-top:8px;}
+.section-head h2{font-size:22px;margin-bottom:6px;}
+.section-head p{font-size:14px;color:var(--muted);}
+.about-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2.2fr);gap:28px;margin-top:18px;}
+.box{background:#020617;border-radius:18px;border:1px solid rgba(148,163,184,.4);padding:18px;box-shadow:0 14px 32px rgba(15,23,42,.9);font-size:14px;}
+.box ul{margin:10px 0 0 0;padding:0;list-style:none;}
+.box li{margin-bottom:6px;display:flex;align-items:flex-start;gap:4px;}
+.box li span:first-child{color:var(--accent);}
+.pill-mini{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;border:1px solid rgba(34,197,94,.7);font-size:11px;color:#bbf7d0;background:rgba(15,23,42,.95);margin-bottom:6px;}
+.skills-grid{display:grid;gap:10px;margin-top:18px;}
+.skill-card{border-radius:999px;padding:8px 14px;background:linear-gradient(90deg,rgba(15,23,42,.96),rgba(15,23,42,.9));border:1px solid rgba(148,163,184,.7);display:flex;justify-content:space-between;align-items:center;font-size:13px;transition:.25s;}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(15,23,42,.9);border-color:transparent;}
+.skill-tag{font-size:11px;padding:3px 10px;border-radius:999px;border:1px solid rgba(226,232,240,.8);background:rgba(15,23,42,.95);}
+.skills-note{margin-top:14px;font-size:13px;color:var(--muted);}
+.contact-grid{display:grid;grid-template-columns:minmax(0,2.3fr) minmax(0,2.1fr);gap:24px;margin-top:20px;}
+.contact-item{display:flex;align-items:center;gap:10px;font-size:13px;margin-bottom:6px;}
+.contact-symbol{width:26px;height:26px;border-radius:999px;border:1px solid rgba(148,163,184,.75);display:flex;align-items:center;justify-content:center;color:var(--accent);}
+.contact-value{direction:ltr;unicode-bidi:plaintext;}
+a.link{color:var(--accent);text-decoration:none;}
+a.link:hover{text-decoration:underline;}
+.fb-box{background:radial-gradient(circle at top,#1d4ed8,#020617);border-radius:18px;border:1px solid rgba(37,99,235,.7);padding:14px;font-size:13px;box-shadow:0 16px 34px rgba(15,23,42,.95);}
+.fb-chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(15,23,42,.95);border:1px solid rgba(147,197,253,.8);margin-bottom:6px;}
+.fb-icon{width:16px;height:16px;border-radius:999px;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;color:#eff6ff;}
+.booking-overlay{position:fixed;inset:0;background:rgba(15,23,42,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:30;}
+.booking-overlay.active{display:flex;}
+.booking-card{max-width:420px;width:100%;background:#020617;border-radius:18px;border:1px solid rgba(148,163,184,.55);box-shadow:0 20px 45px rgba(0,0,0,.85);padding:18px 18px 16px;position:relative;animation:fade-up .35s ease-out;}
+.booking-card h3{font-size:16px;margin-bottom:4px;}
+.booking-card p{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.booking-form{display:grid;gap:9px;margin-top:6px;font-size:13px;}
+.booking-form label{display:grid;gap:4px;}
+.booking-input,.booking-select{background:#020617;border-radius:10px;border:1px solid rgba(148,163,184,.6);padding:7px 9px;font-family:inherit;font-size:13px;color:var(--text);}
+.booking-input:focus,.booking-select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 1px rgba(34,211,238,.7);}
+.booking-row{display:grid;gap:9px;}
+.booking-close{position:absolute;top:8px;left:10px;width:24px;height:24px;border-radius:999px;border:1px solid rgba(148,163,184,.6);background:rgba(15,23,42,.95);color:var(--muted);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.booking-close:hover{color:#e5e7eb;border-color:var(--accent);}
+.booking-hidden{display:none;}
+.booking-success{margin-top:6px;font-size:12px;color:#4ade80;}
+.booking-submit{width:100%;justify-content:center;margin-top:4px;}
+.booking-note{font-size:11px;color:var(--muted);}
+footer{border-top:1px solid rgba(31,41,55,.9);padding:14px 20px 18px;margin-top:30px;font-size:12px;color:var(--muted);background:#020617;}
+.footer-inner{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;}
+.footer-inner span.highlight{color:var(--accent);}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes grow{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes fade-up{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.hero,.about-grid,.contact-grid{grid-template-columns:minmax(0,1fr);}main{padding-top:80px;}}
+@media(max-width:640px){.nav ul{display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="brand">
+      <div class="brand-logo"><img src="logo.jpg" alt="شعار Mohammed Altabib - نجم الرياضيات"></div>
+      <div class="brand-text">
+        <span>Mohammed Altabib</span>
+        <span>مدرس رياضيات ومواد رياضة هندسية</span>
+      </div>
+    </div>
+    <ul>
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#about">نبذة عني</a></li>
+      <li><a href="#skills">المهارات</a></li>
+      <li><a href="#contact">التواصل</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="home" class="hero">
+    <div>
+      <div class="pill-mini" style="margin-bottom:10px;">مرحبا بك في ملفي الشخصي</div>
+      <h1 class="hero-title">أنا <span>Mohammed Altabib</span><br>مدرس متخصص في مادة الرياضيات</h1>
+      <p class="hero-sub">
+        أقوم بتدريس مادة <strong>الرياضيات</strong> لطلبة
+        <strong>الشهادة الإعدادية</strong> و<strong>سنوات النقل الثانوي</strong> و<strong>الشهادة الثانوية</strong>،
+        وكذلك تدريس مادة <strong>رياضة 1, 2, 3, 4</strong> لطلبة <strong>كلية الهندسة صبراتة</strong> بأسلوب مبسط ومنظم يساعد على الفهم
+        وحل المسائل بثقة.
+      </p>
+      <div class="tag-row">
+        <div class="tag">شرح مبسط + أمثلة عملية</div>
+        <div class="tag">متابعة وتقويم مستمر للطالب</div>
+        <div class="tag">تركيز على حل المسائل والامتحانات</div>
+      </div>
+      <div class="btn-row">
+        <a href="javascript:void(0)" id="open-booking" class="btn btn-primary">
+          احجز حصة الآن
+          <span class="btn-icon">➜</span>
+        </a>
+        <a href="https://www.facebook.com/share/1BkouoJYD8/?mibextid=LQQJ4d" target="_blank" class="btn btn-ghost">
+          صفحتي على فيسبوك
+          <span class="btn-icon">f</span>
+        </a>
+      </div>
+      <p class="hero-note">متاح للحصص الفردية والجماعية أونلاين أو حضورياً حسب الإمكانية.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-inner">
+        <h3 style="font-size:15px;margin-bottom:4px;">مستويات التدريس</h3>
+        <p style="font-size:12px;color:#9ca3af;margin-bottom:6px;">من الإعدادي إلى مقررات الرياضة في كلية الهندسة.</p>
+        <div class="hero-level">
+          <span>الشهادة الإعدادية</span>
+          <div class="progress"><span style="width:100%;"></span></div>
+        </div>
+        <div class="hero-level">
+          <span>الثانوي (نقل + شهادة)</span>
+          <div class="progress"><span style="width:100%;"></span></div>
+        </div>
+        <div class="hero-level">
+          <span>رياضة 1–4 (هندسة)</span>
+          <div class="progress"><span style="width:100%;"></span></div>
+        </div>
+        <div class="badge">
+          <span>📘 خطط شرح + واجبات + مراجعات شاملة</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head">
+      <h2>نبذة عني</h2>
+      <p>أعمل على مساعدة الطلبة في فهم مادة الرياضيات من الأساسيات إلى الأسئلة المتقدمة، مع التركيز على تبسيط القوانين وربطها بالتطبيقات العملية.</p>
+    </div>
+    <div class="about-grid">
+      <div class="box">
+        <h3 style="margin-bottom:6px;font-size:16px;">خبرتي في التدريس</h3>
+        <p>
+          أشرح مادة الرياضيات ومواد الرياضة لطلاب المراحل المختلفة بطريقة تدريجية تعتمد على الأمثلة، ثم التمارين، ثم حل نماذج الامتحانات،
+          حتى يصل الطالب لمرحلة الثقة الكاملة في المادة.
+        </p>
+        <ul>
+          <li><span>•</span><span>تدريس مادة الرياضيات لطلبة <strong>الشهادة الإعدادية</strong>.</span></li>
+          <li><span>•</span><span>تدريس الرياضيات لطلبة <strong>سنوات النقل الثانوي</strong>.</span></li>
+          <li><span>•</span><span>تأهيل الطلبة لاجتياز <strong>الشهادة الثانوية</strong> باحترافية.</span></li>
+          <li><span>•</span><span>تدريس مادة <strong>رياضة 1, 2, 3, 4</strong> لطلبة <strong>كلية الهندسة صبراتة</strong>.</span></li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="pill-mini">
+          <span>🎯 هدف الدروس</span>
+        </div>
+        <p>
+          أن يتعامل الطالب مع الرياضيات بثقة بدون خوف، من خلال شرح واضح، ومسائل متنوعة، وحلول مشروحة خطوة بخطوة، مع توفير ملاحظات
+          ونصائح للمذاكرة والاستعداد للامتحان.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <h2>المهارات</h2>
+      <p>هذه قائمة بأهم المهارات التي أمتلكها في مجال التدريس والبرمجة.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <span>مدرس في مادة الرياضيات</span>
+        <span class="skill-tag">شرح + تدريب + مراجعة</span>
+      </div>
+      <div class="skill-card">
+        <span>أجيد لغة HTML</span>
+        <span class="skill-tag">هيكلة صفحات الويب</span>
+      </div>
+      <div class="skill-card">
+        <span>أجيد لغة CSS</span>
+        <span class="skill-tag">تصميم واجهات جذابة</span>
+      </div>
+      <div class="skill-card">
+        <span>أجيد لغة JavaScript</span>
+        <span class="skill-tag">إضافة تفاعل للصفحات</span>
+      </div>
+      <div class="skill-card">
+        <span>أجيد لغة Python</span>
+        <span class="skill-tag">برمجة وتحليل بيانات</span>
+      </div>
+    </div>
+    <p class="skills-note">
+      أستفيد من هذه المهارات في إعداد مواد تعليمية رقمية، ونماذج تدريبية تفاعلية تساعد الطلبة على مراجعة المادة بطريقة أسهل وأكثر متعة.
+    </p>
+  </section>
+
+  <section id="contact">
+    <div class="section-head">
+      <h2>التواصل والحجز</h2>
+      <p>للاستفسار أو حجز حصة، يمكنك التواصل معي مباشرة عبر البريد الإلكتروني أو الهاتف، أو عبر صفحتي على فيسبوك.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="contact-symbol">@</div>
+          <div>
+            <div style="font-size:12px;color:#9ca3af;">البريد الإلكتروني</div>
+            <div class="contact-value">
+              <a class="link" href="mailto:m.altabib02@gmail.com">m.altabib02@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-symbol">☎</div>
+          <div>
+            <div style="font-size:12px;color:#9ca3af;">رقم الهاتف / واتساب</div>
+            <div class="contact-value">
+              <a class="link" href="tel:+218943414584">+218943414584</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fb-box">
+        <div class="fb-chip">
+          <div class="fb-icon">f</div>
+          <span>تابعني على فيسبوك</span>
+        </div>
+        <p>
+          من خلال الصفحة أشارك أخبار المراجعات، الملاحظات المهمة للطلبة، وبعض المسائل النموذجية في الرياضيات ومواد الرياضة الهندسية.
+        </p>
+        <a class="link" target="_blank" href="https://www.facebook.com/share/1BkouoJYD8/?mibextid=LQQJ4d">الذهاب إلى صفحتي على فيسبوك</a>
+      </div>
+    </div>
+  </section>
+  <div id="booking-overlay" class="booking-overlay" aria-hidden="true">
+    <div class="booking-card">
+      <button type="button" class="booking-close" id="booking-close" aria-label="إغلاق">×</button>
+      <h3>حجز حصة جديدة</h3>
+      <p class="booking-note">يرجى إدخال بياناتك ليتم التواصل معك لتأكيد الحجز.</p>
+      <form id="booking-form" class="booking-form">
+        <label>
+          الاسم الكامل
+          <input type="text" id="student-name" name="student-name" class="booking-input" required>
+        </label>
+        <label>
+          السنة الدراسية
+          <select id="study-level" name="study-level" class="booking-select" required>
+            <option value="" disabled selected>اختر السنة الدراسية</option>
+            <option value="prep">شهادة إعدادية</option>
+            <option value="first-secondary">أولى ثانوي</option>
+            <option value="second-secondary">ثانية ثانوي</option>
+            <option value="final-secondary">شهادة ثانوية</option>
+            <option value="engineering">كلية الهندسة</option>
+          </select>
+        </label>
+        <div id="engineering-group" class="booking-row booking-hidden">
+          <label>
+            مادة الرياضة
+            <select id="engineering-course" name="engineering-course" class="booking-select">
+              <option value="" disabled selected>اختر مادة الرياضة</option>
+              <option value="r1">رياضة 1</option>
+              <option value="r2">رياضة 2</option>
+              <option value="r3">رياضة 3</option>
+              <option value="r4">رياضة 4</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          رقم الهاتف
+          <input type="tel" id="student-phone" name="student-phone" class="booking-input" required>
+        </label>
+        <button type="submit" class="btn btn-primary booking-submit">تسجيل</button>
+        <div id="booking-success" class="booking-success booking-hidden">تم تسجيلك بنجاح</div>
+      </form>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div>© <span class="highlight">Mohammed Altabib</span> – صفحة شخصية لتقديم دروس ومراجعات في مادة الرياضيات ومواد رياضة كلية الهندسة.</div>
+    <div>
+      <span>📧 m.altabib02@gmail.com</span>
+      <span>•</span>
+      <span>📞 +218943414584</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var overlay=document.getElementById('booking-overlay');
+  var openBtn=document.getElementById('open-booking');
+  var closeBtn=document.getElementById('booking-close');
+  var levelSelect=document.getElementById('study-level');
+  var engineeringGroup=document.getElementById('engineering-group');
+  var form=document.getElementById('booking-form');
+  var success=document.getElementById('booking-success');
+
+  function openBooking(){
+    if(!overlay)return;
+    overlay.classList.add('active');
+    if(success){success.classList.add('booking-hidden');}
+    if(form){form.reset();}
+    if(engineeringGroup){engineeringGroup.classList.add('booking-hidden');}
+  }
+
+  function closeBooking(){
+    if(!overlay)return;
+    overlay.classList.remove('active');
+  }
+
+  if(openBtn){openBtn.addEventListener('click',openBooking);}
+  if(closeBtn){closeBtn.addEventListener('click',closeBooking);}
+  if(overlay){
+    overlay.addEventListener('click',function(e){
+      if(e.target===overlay){closeBooking();}
+    });
+  }
+  if(levelSelect){
+    levelSelect.addEventListener('change',function(){
+      if(!engineeringGroup)return;
+      if(this.value==='engineering'){
+        engineeringGroup.classList.remove('booking-hidden');
+      }else{
+        engineeringGroup.classList.add('booking-hidden');
+      }
+    });
+  }
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var nameInput=document.getElementById('student-name');
+      var level=document.getElementById('study-level');
+      var course=document.getElementById('engineering-course');
+      var phone=document.getElementById('student-phone');
+      var nameVal=nameInput?nameInput.value.trim():'';
+      var levelVal=level?level.value:'';
+      var levelText=level&&level.options[level.selectedIndex]?level.options[level.selectedIndex].text:'';
+      var courseVal='';
+      var courseText='';
+      if(levelVal==='engineering' && course){
+        courseVal=course.value;
+        courseText=course.options[course.selectedIndex]?course.options[course.selectedIndex].text:'';
+      }
+      var phoneVal=phone?phone.value.trim():'';
+      var subject=encodeURIComponent('حجز حصة رياضيات من الموقع');
+      var bodyLines=[];
+      bodyLines.push('الاسم: '+nameVal);
+      bodyLines.push('السنة الدراسية: '+(levelText||levelVal));
+      if(levelVal==='engineering'){
+        bodyLines.push('مادة الرياضة: '+(courseText||courseVal));
+      }
+      bodyLines.push('رقم الهاتف: '+phoneVal);
+      var body=encodeURIComponent(bodyLines.join('\n'));
+      window.location.href='mailto:m.altabib02@gmail.com?subject='+subject+'&body='+body;
+      if(success){success.classList.remove('booking-hidden');}
+    });
+  }
+})();
+</script>
+</body>
+</html>
